@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.sirius.example.tasks.model/src-gen"
+    editDirectory="/org.eclipse.sirius.example.tasks.model.edit/src-gen" modelPluginID="org.eclipse.sirius.example.tasks.model"
+    modelName="Tasks" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false">
+  <foreignModel>tasks.ecore</foreignModel>
+  <genPackages prefix="Tasks" basePackage="org.eclipse.sirius.example.tasks.model"
+      disposableProviderFactory="true" ecorePackage="tasks.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="tasks.ecore#//Priority">
+      <genEnumLiterals ecoreEnumLiteral="tasks.ecore#//Priority/Minor"/>
+      <genEnumLiterals ecoreEnumLiteral="tasks.ecore#//Priority/Normal"/>
+      <genEnumLiterals ecoreEnumLiteral="tasks.ecore#//Priority/Major"/>
+      <genEnumLiterals ecoreEnumLiteral="tasks.ecore#//Priority/Blocker"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="tasks.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="tasks.ecore#//Type/Bug"/>
+      <genEnumLiterals ecoreEnumLiteral="tasks.ecore#//Type/FeatureRequest"/>
+    </genEnums>
+    <genClasses ecoreClass="tasks.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//Task/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//Task/priority"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tasks.ecore#//Task/assignee"/>
+    </genClasses>
+    <genClasses ecoreClass="tasks.ecore#//ProjectVersion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tasks.ecore#//ProjectVersion/tasks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//ProjectVersion/released"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="tasks.ecore#//AbstractNamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//AbstractNamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="tasks.ecore#//AbstractPlanableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//AbstractPlanableElement/dueDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//AbstractPlanableElement/estimated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//AbstractPlanableElement/remaining"/>
+    </genClasses>
+    <genClasses ecoreClass="tasks.ecore#//Person">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//Person/firstName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tasks.ecore#//Person/lastName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tasks.ecore#//Person/isInvolvedInTasks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tasks.ecore#//Person/leads"/>
+    </genClasses>
+    <genClasses ecoreClass="tasks.ecore#//Project">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tasks.ecore#//Project/isLeadBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tasks.ecore#//Project/versions"/>
+    </genClasses>
+    <genClasses ecoreClass="tasks.ecore#//TaskRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tasks.ecore#//TaskRepository/projects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tasks.ecore#//TaskRepository/persons"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

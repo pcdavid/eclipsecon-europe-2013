@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.sirius.example.tasks.model.tasks.presentation.TasksModelWizardID"
+            name="%_UI_TasksModelWizard_label"
+            class="org.eclipse.sirius.example.tasks.model.tasks.presentation.TasksModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TasksModelFile.gif">
+         <description>%_UI_TasksModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.sirius.example.tasks.model.tasks.presentation.TasksEditorID"
+            name="%_UI_TasksEditor_label"
+            icon="icons/full/obj16/TasksModelFile.gif"
+            extensions="tasks"
+            class="org.eclipse.sirius.example.tasks.model.tasks.presentation.TasksEditor"
+            contributorClass="org.eclipse.sirius.example.tasks.model.tasks.presentation.TasksActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
